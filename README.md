@@ -25,14 +25,22 @@ cd picsimlab-vm
 vagrant up
 ```
 
-After the VM be provisioned, through its GUI, open **PICSimLab** and choose a
-board.
+#### Log in (GUI) and run PICSimLab
+
+After the VM be provisioned, log in through its GUI.
+
+```
+user: vagrant
+password: vagrant
+```
+
+Run **PICSimLab** and choose a board.
 
 ![Alt text](picsimlab.png)
 
 #### Test connection
 
-In the host machine test the connection to PICSimLab.
+In the host machine connect to PICSimLab.
 
 ```
 nc localhost 5000
