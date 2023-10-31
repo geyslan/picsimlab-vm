@@ -58,10 +58,19 @@ Vagrant.configure("2") do |config|
       export DEBIAN_FRONTEND=noninteractive
       # requirements (ensurepip, xdg-icon-resource)
       apt-get install -y python3-venv xdg-utils
+
       # https://lcgamboa.github.io/picsimlab_docs/stable/Linux.html#x7-60002.3.1
       git clone --depth=1 https://github.com/lcgamboa/picsimlab.git
       cd picsimlab
       bscripts/build_all_and_install.sh
+
+      # set serial communication
+      # https://lcgamboa.github.io/picsimlab_docs/stable/SerialCommunication.html#x39-380005
+      wget -O- http://www.piduino.org/piduino-key.asc | apt-key add -
+      add-apt-repository -y 'deb http://apt.piduino.org jammy piduino'
+      apt-get update
+      apt-get install -y tty0tty-dkms
+      usermod -a -G dialout vagrant
     SHELL
 
     # Reload provisioner to reboot the machine
