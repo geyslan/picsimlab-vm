@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
       vb.name = "PICsimLab-vm"
       vb.gui = true
       vb.memory = "4096"
-      vb.cpus = 8
+      vb.cpus = 2
       vb.customize ['modifyvm', :id, '--graphicscontroller', 'vmsvga']
       vb.customize ['modifyvm', :id, '--vram', '128']
       vb.customize ["modifyvm", :id, "--clipboard-mode", "bidirectional"]
